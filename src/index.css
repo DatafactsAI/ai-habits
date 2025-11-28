@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Global Consultant Palette: Charcoal & Electric Blue */
+    
+    /* Background: Pure stark white */
+    --background: 0 0% 100%;
+    /* Foreground: Rich charcoal (softer than black) */
+    --foreground: 210 11% 15%;
+
+    /* Card: Pure white */
+    --card: 0 0% 100%;
+    --card-foreground: 210 11% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 11% 15%;
+
+    /* Primary: Rich charcoal */
+    --primary: 210 11% 15%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 221 83% 80%;
+
+    /* Secondary: Electric Blue (sparingly used) */
+    --secondary: 221 83% 53%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted: Cool grey */
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 10% 40%;
+
+    /* Accent: Electric Blue */
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border: Light cool grey */
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.5rem; /* Sharper corners for consultant look */
+
+    /* Gradients: Subtle & Professional */
+    --gradient-hero: linear-gradient(135deg, hsl(210 11% 15%), hsl(210 15% 25%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 20% 98%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(210 20% 98%));
+
+    /* Shadows: Sharp & clean */
+    --shadow-soft: 0 2px 10px hsl(210 11% 15% / 0.05);
+    --shadow-elevated: 0 10px 30px hsl(210 11% 15% / 0.1);
+    --shadow-glow: 0 0 20px hsl(221 83% 53% / 0.15);
+
+    /* Transitions */
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Dark Mode: Consultant Chic */
+    
+    /* Background: Deep charcoal (almost black) */
+    --background: 210 11% 10%;
+    /* Foreground: Pure white */
+    --foreground: 0 0% 100%;
+
+    /* Card: Slightly lighter charcoal */
+    --card: 210 11% 13%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 210 11% 13%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Primary: White for high contrast */
+    --primary: 0 0% 100%;
+    --primary-foreground: 210 11% 15%;
+    --primary-glow: 221 83% 60%;
+
+    /* Secondary: Electric Blue */
+    --secondary: 221 83% 53%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted: Medium charcoal */
+    --muted: 210 11% 20%;
+    --muted-foreground: 210 10% 60%;
+
+    /* Accent: Electric Blue */
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border: Charcoal border */
+    --border: 210 11% 20%;
+    --input: 210 11% 20%;
+    --ring: 221 83% 53%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(210 11% 10%), hsl(210 11% 15%));
+    --gradient-subtle: linear-gradient(180deg, hsl(210 11% 10%), hsl(210 11% 12%));
+
+    --shadow-soft: 0 4px 24px hsl(0 0% 0% / 0.3);
+    --shadow-elevated: 0 8px 32px hsl(0 0% 0% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+/* Guide-specific typography and styles */
+@layer components {
+  /* Main guide content container */
+  .guide-content {
+    @apply max-w-3xl;
+  }
+
+  /* Guide section spacing */
+  .guide-section {
+    @apply pt-12 md:pt-16;
+    border-top: 1px solid hsl(var(--border));
+    margin-top: 3rem;
+  }
+
+  /* Guide headings */
+  .guide-h2 {
+    @apply text-2xl md:text-3xl font-bold text-foreground mb-6;
+    line-height: 1.3;
+  }
+
+  .guide-h3 {
+    @apply text-xl md:text-2xl font-semibold text-foreground mt-8 mb-4;
+    line-height: 1.4;
+  }
+
+  .guide-h4 {
+    @apply text-lg md:text-xl font-semibold text-foreground mt-6 mb-3;
+    line-height: 1.4;
+  }
+
+  /* Guide body content */
+  .guide-body {
+    @apply text-base md:text-lg leading-relaxed;
+    line-height: 1.75;
+  }
+
+  .guide-body p {
+    @apply text-muted-foreground mb-5;
+  }
+
+  .guide-body h3 {
+    @apply text-xl md:text-2xl font-semibold text-foreground mt-10 mb-4;
+  }
+
+  .guide-body h4 {
+    @apply text-lg md:text-xl font-semibold text-foreground mt-8 mb-3;
+  }
+
+  .guide-body ul,
+  .guide-body ol {
+    @apply my-5 pl-6 text-muted-foreground;
+  }
+
+  .guide-body ul {
+    @apply list-disc;
+  }
+
+  .guide-body ol {
+    @apply list-decimal;
+  }
+
+  .guide-body li {
+    @apply mb-3 pl-2;
+  }
+
+  .guide-body li strong {
+    @apply text-foreground;
+  }
+
+  .guide-body strong {
+    @apply text-foreground font-semibold;
+  }
+
+  /* Callout boxes in guide content */
+  .guide-body .callout {
+    @apply my-8 rounded-xl border-l-4 p-5 md:p-6;
+  }
+
+  .guide-body .callout h4 {
+    @apply text-lg font-semibold mb-2 mt-0;
+  }
+
+  .guide-body .callout p {
+    @apply mb-2 last:mb-0;
+  }
+
+  .guide-body .callout ul,
+  .guide-body .callout ol {
+    @apply my-2;
+  }
+
+  .guide-body .callout-tip {
+    @apply bg-blue-50 dark:bg-blue-950/30 border-blue-400;
+  }
+
+  .guide-body .callout-tip h4 {
+    @apply text-blue-900 dark:text-blue-100;
+  }
+
+  .guide-body .callout-warning {
+    @apply bg-amber-50 dark:bg-amber-950/30 border-amber-400;
+  }
+
+  .guide-body .callout-warning h4 {
+    @apply text-amber-900 dark:text-amber-100;
+  }
+
+  .guide-body .callout-important {
+    @apply bg-rose-50 dark:bg-rose-950/30 border-rose-400;
+  }
+
+  .guide-body .callout-important h4 {
+    @apply text-rose-900 dark:text-rose-100;
+  }
+
+  .guide-body .callout-example {
+    @apply bg-emerald-50 dark:bg-emerald-950/30 border-emerald-400;
+  }
+
+  .guide-body .callout-example h4 {
+    @apply text-emerald-900 dark:text-emerald-100;
+  }
+
+  /* Step list styling */
+  .guide-body .step-list {
+    @apply my-8 space-y-6;
+  }
+
+  .guide-body .step {
+    @apply flex gap-4 md:gap-5;
+  }
+
+  .guide-body .step-number {
+    @apply flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-lg md:text-xl;
+  }
+
+  .guide-body .step-content {
+    @apply flex-1 pt-1;
+  }
+
+  .guide-body .step-content h4 {
+    @apply text-lg md:text-xl font-semibold text-foreground mt-0 mb-2;
+  }
+
+  .guide-body .step-content p {
+    @apply text-muted-foreground mb-0;
+  }
+
+  /* Section divider */
+  .guide-body .section-divider {
+    @apply my-10 border-t border-border;
+  }
+
+  /* Code/command blocks */
+  .guide-body code {
+    @apply bg-muted px-2 py-1 rounded text-sm font-mono;
+  }
+
+  .guide-body pre {
+    @apply bg-muted p-4 rounded-lg overflow-x-auto my-5;
+  }
+
+  .guide-body pre code {
+    @apply bg-transparent p-0;
+  }
+
+  /* Links in guide content */
+  .guide-body a {
+    @apply text-primary hover:underline;
+  }
+
+  /* Blockquotes */
+  .guide-body blockquote {
+    @apply border-l-4 border-primary/30 pl-5 my-6 italic text-muted-foreground;
+  }
+}
+
+/* Print styles for guides */
+@media print {
+  .guide-content {
+    max-width: 100%;
+  }
+
+  .guide-body {
+    font-size: 12pt;
+    line-height: 1.6;
+  }
+
+  .guide-body .callout {
+    break-inside: avoid;
+    border: 1px solid #ccc;
+    background: #f5f5f5 !important;
+  }
+
+  .guide-body .step-list {
+    break-inside: avoid;
+  }
+
+  nav,
+  footer,
+  button {
+    display: none !important;
+  }
+}
