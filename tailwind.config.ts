@@ -50,8 +50,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["Source Sans 3", "sans-serif"],
-        heading: ["Libre Baskerville", "serif"],
+        sans: ["Inter", "sans-serif"],
+        heading: ["Space Grotesk", "sans-serif"],
       },
       backgroundImage: {
         'gradient-hero': 'var(--gradient-hero)',

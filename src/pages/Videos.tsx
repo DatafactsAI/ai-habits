@@ -1,33 +1,26 @@
+import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { PlayCircle, Clock, BookOpen } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 const Videos = () => {
-  const modules = [
+  const [activeVideo, setActiveVideo] = useState<string>("https://www.loom.com/embed/3f15896a09db4852bdddca00f2557d23");
+
+  const videos = [
     {
+      id: "capability-gap",
       number: 1,
-      title: "Understanding Modern AI Models",
-      duration: "5 min",
-      description: "Learn about GPT, Claude, and other leading AI platforms and their business applications.",
+      title: "The Capability Gap: From Occasional Use to AI-Augmented Professional",
+      loomId: "3f15896a09db4852bdddca00f2557d23",
+      description: "Explore the concept of the capability gap we face with AI tools, highlighting how many of us pay for software we don't use. Learn how while these tools can save us significant time, the missing ingredient is habit. Drawing on principles from behavioral change, discover how to integrate AI into your daily workflow effectively and make AI tools more accessible by placing them front and center on your devices.",
     },
     {
+      id: "habit-stacking",
       number: 2,
-      title: "Using AI to Solve Daily Tasks",
-      duration: "6 min",
-      description: "Practical demonstrations of how AI can automate common business workflows.",
-    },
-    {
-      number: 3,
-      title: "Productivity Workflows",
-      duration: "5 min",
-      description: "Build efficient AI-powered systems for content creation, communication, and analysis.",
-    },
-    {
-      number: 4,
-      title: "Real Case Studies",
-      duration: "4 min",
-      description: "See how SMEs are successfully implementing AI to grow their businesses.",
+      title: "Habit Stacking: Integrating AI into Daily Routines",
+      loomId: "3b91b901002b413ba25251c19a83e10e",
+      description: "Learn the importance of integrating AI tools into daily routines using habit stacking. Discover two practical scenarios: using AI for summarizing emails after opening them and dictating meeting notes immediately after a call. This method helps create a seamless connection between existing habits and new behaviors, making it easier to remember to use AI when needed.",
     },
   ];
 
@@ -41,10 +34,10 @@ const Videos = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center space-y-4">
               <h1 className="text-4xl md:text-5xl font-bold text-white">
-                Introductory Course: The Foundations of AI for Business
+                Practice Sessions: Building AI-Augmented Capabilities
               </h1>
               <p className="text-xl text-white/90">
-                Start your AI journey with this comprehensive 20-minute training
+                Transform from using AI occasionally to becoming an AI-augmented professional through proven habit-building techniques
               </p>
             </div>
           </div>
@@ -59,7 +52,7 @@ const Videos = () => {
                   {/* Loom Video Embed */}
                   <div className="aspect-video rounded-t-lg overflow-hidden">
                     <iframe
-                      src="https://www.loom.com/embed/da25eefce67e49d69b06c7252dea62a0"
+                      src={activeVideo}
                       frameBorder="0"
                       allowFullScreen
                       className="w-full h-full"
@@ -67,21 +60,15 @@ const Videos = () => {
                   </div>
                   <div className="p-6 space-y-4">
                     <h2 className="text-2xl font-bold text-foreground">
-                      AI Business Essentials - Foundation Course
+                      {videos.find(v => `https://www.loom.com/embed/${v.loomId}` === activeVideo)?.title || "AI Habits Practice Session"}
                     </h2>
                     <p className="text-muted-foreground">
-                      This introductory course will give you a solid understanding of how AI can 
-                      transform your business operations. We'll cover the key platforms, practical 
-                      use cases, and safety considerations to help you get started with confidence.
+                      {videos.find(v => `https://www.loom.com/embed/${v.loomId}` === activeVideo)?.description || "Watch the video above to learn about building AI-augmented professional capabilities."}
                     </p>
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
                       <div className="flex items-center gap-2">
-                        <Clock className="h-4 w-4" />
-                        <span>20 minutes</span>
-                      </div>
-                      <div className="flex items-center gap-2">
                         <BookOpen className="h-4 w-4" />
-                        <span>4 modules</span>
+                        <span>{videos.length} practice sessions</span>
                       </div>
                     </div>
                   </div>
@@ -96,36 +83,54 @@ const Videos = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto space-y-8">
               <div className="text-center">
-                <h2 className="text-3xl font-bold mb-4 text-foreground">Course Modules</h2>
+                <h2 className="text-3xl font-bold mb-4 text-foreground">Practice Sessions</h2>
                 <p className="text-muted-foreground">
-                  What you'll learn in this comprehensive training
+                  Watch these sessions to build your AI augmentation capabilities through proven habit-building techniques
                 </p>
               </div>
 
               <div className="grid gap-6">
-                {modules.map((module) => (
-                  <Card key={module.number} className="shadow-soft hover:shadow-elevated transition-all duration-300">
-                    <CardHeader>
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex-grow">
-                          <div className="flex items-center gap-3 mb-2">
-                            <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">
-                              {module.number}
+                {videos.map((video) => {
+                  const isActive = `https://www.loom.com/embed/${video.loomId}` === activeVideo;
+                  return (
+                    <Card 
+                      key={video.id} 
+                      className={`shadow-soft hover:shadow-elevated transition-all duration-300 cursor-pointer ${
+                        isActive ? 'ring-2 ring-primary border-primary' : ''
+                      }`}
+                      onClick={() => setActiveVideo(`https://www.loom.com/embed/${video.loomId}`)}
+                    >
+                      <CardHeader>
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="flex-grow">
+                            <div className="flex items-center gap-3 mb-2">
+                              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
+                                isActive ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary'
+                              }`}>
+                                {video.number}
+                              </div>
+                              <CardTitle className="text-xl flex items-center gap-2">
+                                {video.title}
+                                {isActive && (
+                                  <span className="text-xs font-medium px-2 py-1 rounded-full bg-primary/10 text-primary">
+                                    Now Playing
+                                  </span>
+                                )}
+                              </CardTitle>
                             </div>
-                            <CardTitle className="text-xl">{module.title}</CardTitle>
+                            <CardDescription className="text-base">
+                              {video.description}
+                            </CardDescription>
                           </div>
-                          <CardDescription className="text-base">
-                            {module.description}
-                          </CardDescription>
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground whitespace-nowrap">
+                            <PlayCircle className="h-4 w-4" />
+                            <span>Watch</span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground whitespace-nowrap">
-                          <Clock className="h-4 w-4" />
-                          {module.duration}
-                        </div>
-                      </div>
-                    </CardHeader>
-                  </Card>
-                ))}
+                      </CardHeader>
+                    </Card>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -137,10 +142,11 @@ const Videos = () => {
             <div className="max-w-4xl mx-auto text-center">
               <Card className="shadow-soft bg-gradient-card border-primary/20">
                 <CardHeader>
-                  <CardTitle className="text-2xl">More Content Coming Soon</CardTitle>
+                  <CardTitle className="text-2xl">More Practice Sessions Coming Soon</CardTitle>
                   <CardDescription className="text-base">
-                    New modules are added monthly with the latest AI tools, techniques, and business strategies.
-                    Stay tuned for advanced topics including automation workflows, AI for marketing, and team collaboration.
+                    New practice sessions are added monthly with the latest AI augmentation techniques, professional frameworks, 
+                    and work practices. Stay tuned for advanced topics including performance optimization, workflow integration, 
+                    and capability building strategies.
                   </CardDescription>
                 </CardHeader>
               </Card>

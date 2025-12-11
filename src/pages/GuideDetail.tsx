@@ -24,7 +24,7 @@ const GuideDetail = () => {
             <Button asChild>
               <Link to="/guides">
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Guides
+                Back to Modules
               </Link>
             </Button>
           </div>
@@ -52,7 +52,7 @@ const GuideDetail = () => {
               <Button variant="ghost" asChild className="mb-6 text-white/80 hover:text-white hover:bg-white/10">
                 <Link to="/guides">
                   <ArrowLeft className="mr-2 h-4 w-4" strokeWidth={1.5} />
-                  Back to Guides
+                  Back to Modules
                 </Link>
               </Button>
 
@@ -145,7 +145,7 @@ const GuideDetail = () => {
           <section className="py-12 md:py-16 bg-muted/30 border-t border-border">
             <div className="container mx-auto px-4">
               <div className="max-w-4xl mx-auto">
-                <h2 className="text-2xl font-bold mb-8 text-foreground">Continue Learning</h2>
+                <h2 className="text-2xl font-bold mb-8 text-foreground">Continue Your Journey</h2>
                 <div className="grid md:grid-cols-3 gap-6">
                   {relatedGuides.map((relatedGuide) => (
                     <Card key={relatedGuide.id} className="shadow-soft hover:shadow-elevated transition-all duration-300">
@@ -163,7 +163,7 @@ const GuideDetail = () => {
                         </p>
                         <Button variant="ghost" size="sm" asChild className="p-0 h-auto">
                           <Link to={`/guides/${relatedGuide.id}`} className="group text-primary">
-                            Read Guide
+                            Explore Module
                             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
                           </Link>
                         </Button>
@@ -186,14 +186,14 @@ const GuideDetail = () => {
                 </CardHeader>
                 <CardContent className="text-center space-y-4">
                   <p className="text-muted-foreground">
-                    Our video training provides step-by-step demonstrations of AI tools and techniques for your business.
+                    Our practice sessions provide step-by-step demonstrations of AI augmentation techniques and professional frameworks.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button asChild size="lg">
-                      <Link to="/videos">Watch Training Videos</Link>
+                      <Link to="/videos">Watch Practice Sessions</Link>
                     </Button>
                     <Button variant="outline" asChild size="lg">
-                      <Link to="/guides">Browse More Guides</Link>
+                      <Link to="/guides">Explore More Modules</Link>
                     </Button>
                   </div>
                 </CardContent>

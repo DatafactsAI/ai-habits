@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Video, BookOpen, Bot, Check } from "lucide-react";
+import { PlayCircle, BookOpen, Sparkles, Check, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -9,29 +9,29 @@ import heroBanner from "@/assets/hero-banner.jpg";
 const Index = () => {
   const features = [
     {
-      icon: Video,
-      title: "Video Training",
-      description: "20-minute foundational course plus monthly updates with practical demonstrations across AI platforms.",
+      icon: PlayCircle,
+      title: "Practice Sessions",
+      description: "20-minute foundational course plus monthly updates with practical demonstrations of AI augmentation techniques.",
     },
     {
       icon: BookOpen,
-      title: "Practical Guides",
-      description: "Written resources and step-by-step guides to implement AI solutions in your business.",
+      title: "Practice Modules",
+      description: "Comprehensive frameworks and step-by-step guides to build AI-augmented professional capabilities.",
     },
     {
-      icon: Bot,
-      title: "AI Agent Support",
-      description: "Get quick answers to your AI questions with our intelligent assistant (coming soon).",
+      icon: Sparkles,
+      title: "AI Assistant",
+      description: "Get personalized guidance on your AI augmentation journey with our intelligent assistant (coming soon).",
     },
   ];
 
   const benefits = [
-    "Learn to streamline repetitive work",
-    "Improve productivity across your team",
-    "Access real-world case studies",
-    "Monthly content updates",
-    "Practical, actionable training",
-    "Designed for SME owners",
+    "Build AI-augmented professional capabilities",
+    "Transform your performance through proven frameworks",
+    "Access latest AI work practices and techniques",
+    "Monthly content updates with new practices",
+    "Practical, actionable transformation guidance",
+    "Designed for professionals seeking excellence",
   ];
 
   return (
@@ -52,17 +52,17 @@ const Index = () => {
         <div className="relative container mx-auto px-4 py-24 md:py-32">
           <div className="max-w-3xl mx-auto text-center space-y-8">
             <h1 className="text-4xl md:text-6xl font-bold text-white">
-              Practical AI Training for Small and Medium Businesses
+              Build AI-Augmented Professional Capabilities
             </h1>
             <p className="text-xl md:text-2xl text-white/90">
-              Learn how to use AI tools to streamline work, improve productivity, and create value in your business.
+              Transform your professional performance through proven frameworks, AI integration practices, and the latest work methodologies.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild className="shadow-glow">
-                <Link to="/videos">Start Learning</Link>
+                <Link to="/videos">Start Your Journey</Link>
               </Button>
               <Button size="lg" variant="outline" asChild className="bg-white/10 border-white/20 text-white hover:bg-white/20">
-                <Link to="/guides">View Guides</Link>
+                <Link to="/guides">Explore Modules</Link>
               </Button>
             </div>
           </div>
@@ -73,9 +73,9 @@ const Index = () => {
       <section className="py-20 bg-gradient-subtle">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">What's Included</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Your Transformation Framework</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Everything you need to start implementing AI in your business today
+              Everything you need to become an AI-augmented professional, built on proven transformation principles
             </p>
           </div>
 
@@ -106,13 +106,13 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                Start with the Foundations
+                Build Your AI Augmentation Foundation
               </h2>
               <p className="text-lg text-muted-foreground">
-                Our initial course is delivered through a comprehensive 20-minute Loom video that covers the essentials of AI for business.
+                Start with our comprehensive 20-minute foundational practice session that introduces the core principles of AI-augmented professional development.
               </p>
               <p className="text-lg text-muted-foreground">
-                After that, you'll receive ongoing monthly updates with new techniques, platform demonstrations, and practical examples you can implement immediately.
+                You'll then receive ongoing monthly updates with new AI practices, tool integrations, and professional frameworks that amplify your capabilities.
               </p>
               <div className="space-y-3">
                 {benefits.map((benefit, index) => (
@@ -127,7 +127,7 @@ const Index = () => {
             <Card className="shadow-elevated bg-gradient-card border-primary/20">
               <CardHeader>
                 <CardTitle className="text-2xl">Membership Pricing</CardTitle>
-                <CardDescription>Simple, transparent pricing</CardDescription>
+                <CardDescription>Simple, transparent investment in your professional transformation</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="text-center py-6">
@@ -139,11 +139,11 @@ const Index = () => {
                 <ul className="space-y-3">
                   <li className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-primary" strokeWidth={1.5} />
-                    <span className="text-sm">Full access to video training</span>
+                    <span className="text-sm">Full access to practice sessions</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-primary" strokeWidth={1.5} />
-                    <span className="text-sm">Complete guide library</span>
+                    <span className="text-sm">Complete practice module library</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-primary" strokeWidth={1.5} />
@@ -151,11 +151,11 @@ const Index = () => {
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-primary" strokeWidth={1.5} />
-                    <span className="text-sm">AI agent support (coming soon)</span>
+                    <span className="text-sm">AI assistant support (coming soon)</span>
                   </li>
                 </ul>
                 <Button className="w-full" size="lg" asChild>
-                  <Link to="/videos">Get Started</Link>
+                  <Link to="/videos">Start Your Journey</Link>
                 </Button>
               </CardContent>
             </Card>

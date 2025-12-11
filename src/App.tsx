@@ -10,6 +10,7 @@ import GuideDetail from "./pages/GuideDetail";
 import AIAgent from "./pages/AIAgent";
 import VoiceAgent from "./pages/VoiceAgent";
 import SoftwareLibrary from "./pages/SoftwareLibrary";
+import Methodology from "./pages/Methodology";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/software" element={<SoftwareLibrary />} />
           <Route path="/ai-agent" element={<AIAgent />} />
           <Route path="/voice-agent" element={<VoiceAgent />} />
+          <Route path="/methodology" element={<Methodology />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

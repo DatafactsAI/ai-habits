@@ -15,7 +15,7 @@ const AIAgent = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Hello! I'm your AI Business Assistant. I can help answer questions about AI tools, best practices, and how to implement AI in your business. What would you like to know?",
+      content: "Hello! I'm your AI Augmentation Assistant. I can help answer questions about AI practices, professional frameworks, and how to build your AI-augmented capabilities. What would you like to know?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -83,10 +83,10 @@ const AIAgent = () => {
                 </div>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-white">
-                AI Agent Demo
+                AI Assistant
               </h1>
               <p className="text-xl text-white/90">
-                Get quick answers about AI tools and best practices
+                Get personalized guidance on your AI augmentation journey
               </p>
             </div>
           </div>
@@ -98,7 +98,7 @@ const AIAgent = () => {
             <div className="max-w-3xl mx-auto flex items-start gap-3 text-sm">
               <Info className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
               <p className="text-muted-foreground">
-                This is a demonstration of how an AI agent could help members with quick questions about AI tools and best practices. 
+                This is a demonstration of how an AI assistant can help you on your AI augmentation journey. 
                 Full functionality with advanced API integration is coming soon for members.
               </p>
             </div>
@@ -112,7 +112,7 @@ const AIAgent = () => {
               <CardHeader>
                 <CardTitle>Chat with AI Assistant</CardTitle>
                 <CardDescription>
-                  Ask questions about AI implementation, tools, and strategies
+                  Ask questions about AI augmentation practices, professional frameworks, and capability building
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -190,9 +190,9 @@ const AIAgent = () => {
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-2xl font-bold mb-4 text-foreground">Coming Soon: Enhanced Features</h2>
               <p className="text-muted-foreground mb-6">
-                The full version of our AI agent will include advanced features like personalized recommendations 
-                based on your industry, integration with your business tools, and the ability to remember your 
-                preferences and past conversations.
+                The full version of our AI assistant will include advanced features like personalized recommendations 
+                based on your professional goals, integration with your workflow tools, and the ability to track your 
+                AI augmentation progress over time.
               </p>
               <Button size="lg">Join Waitlist for Full Access</Button>
             </div>

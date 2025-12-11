@@ -77,10 +77,10 @@ const Guides = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center space-y-4">
               <h1 className="text-4xl md:text-5xl font-bold text-white">
-                Practical AI Guides
+                Practice Modules
               </h1>
               <p className="text-xl text-white/90">
-                Step-by-step resources to implement AI solutions in your business
+                Comprehensive frameworks to build AI-augmented professional capabilities
               </p>
             </div>
           </div>
@@ -90,7 +90,7 @@ const Guides = () => {
         <section className="py-8 border-b border-border">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap gap-3 justify-center">
-              <Button variant="outline" size="sm">All Guides</Button>
+              <Button variant="outline" size="sm">All Modules</Button>
               {categories.map((category) => (
                 <Button key={category} variant="outline" size="sm">
                   {category}
@@ -125,7 +125,7 @@ const Guides = () => {
                       <span className="text-sm text-muted-foreground">{guide.readTime}</span>
                       <Button variant="ghost" size="sm" asChild>
                         <Link to={`/guides/${guide.id}`} className="group">
-                          Read Guide
+                          Explore Module
                           <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
                         </Link>
                       </Button>
@@ -144,12 +144,12 @@ const Guides = () => {
               <CardHeader className="text-center">
                 <CardTitle className="text-2xl">Can't Find What You Need?</CardTitle>
                 <CardDescription className="text-base">
-                  New guides are added regularly. Have a specific topic you'd like us to cover? 
+                  New practice modules are added regularly. Have a specific AI augmentation topic you'd like us to cover? 
                   Let us know and we'll prioritize it in our upcoming content.
                 </CardDescription>
               </CardHeader>
               <CardContent className="text-center">
-                <Button size="lg">Request a Guide Topic</Button>
+                <Button size="lg">Request a Module Topic</Button>
               </CardContent>
             </Card>
           </div>
