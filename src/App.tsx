@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PasswordGate from "@/components/PasswordGate";
 import Index from "./pages/Index";
 import Videos from "./pages/Videos";
 import Guides from "./pages/Guides";
@@ -20,19 +21,21 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/videos" element={<Videos />} />
-          <Route path="/guides" element={<Guides />} />
-          <Route path="/guides/:id" element={<GuideDetail />} />
-          <Route path="/software" element={<SoftwareLibrary />} />
-          <Route path="/ai-agent" element={<AIAgent />} />
-          <Route path="/voice-agent" element={<VoiceAgent />} />
-          <Route path="/methodology" element={<Methodology />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <PasswordGate>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/videos" element={<Videos />} />
+            <Route path="/guides" element={<Guides />} />
+            <Route path="/guides/:id" element={<GuideDetail />} />
+            <Route path="/software" element={<SoftwareLibrary />} />
+            <Route path="/ai-agent" element={<AIAgent />} />
+            <Route path="/voice-agent" element={<VoiceAgent />} />
+            <Route path="/methodology" element={<Methodology />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </PasswordGate>
     </TooltipProvider>
   </QueryClientProvider>
 );
